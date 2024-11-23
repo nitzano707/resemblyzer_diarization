@@ -1,10 +1,11 @@
 # בחר גרסת Python מתאימה
 FROM python:3.11-slim
 
-# התקן GCC ותלויות מערכת אחרות
+# התקן FFmpeg ותלויות מערכת אחרות
 RUN apt-get update && apt-get install -y \
-    gcc \
+    ffmpeg \
     libsndfile1 \
+    gcc \
     && rm -rf /var/lib/apt/lists/*
 
 # הגדר ספריית עבודה
