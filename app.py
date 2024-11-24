@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from resemblyzer import VoiceEncoder
+from asgiref.wsgi import WsgiToAsgi
 import os
 import mimetypes
 
@@ -50,6 +51,9 @@ def encode_audio():
         # מחיקת הקובץ לאחר עיבוד
         if os.path.exists(file_path):
             os.remove(file_path)
+
+# עטיפת WSGI ל-ASGI
+asgi_app = WsgiToAsgi(app)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
