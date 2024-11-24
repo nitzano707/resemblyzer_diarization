@@ -1,5 +1,6 @@
-Flask
-resemblyzer
-librosa
-scikit-learn
-pydub
+fastapi
+gunicorn
+uvicorn
+pyannote.audio
+torch
+transformers
