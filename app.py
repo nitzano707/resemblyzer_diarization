@@ -1,8 +1,8 @@
 from flask import Flask, request, jsonify
 from resemblyzer import VoiceEncoder
-from asgiref.wsgi import WsgiToAsgi
 import os
 import mimetypes
+from flask_asgi import ASGIApp
 
 app = Flask(__name__)
 
@@ -52,8 +52,8 @@ def encode_audio():
         if os.path.exists(file_path):
             os.remove(file_path)
 
-# עטיפת WSGI ל-ASGI
-asgi_app = WsgiToAsgi(app)
+# עטיפת האפליקציה עם ASGIApp
+asgi_app = ASGIApp(app)
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))  # קבלת פורט מ-Render
