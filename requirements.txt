@@ -1,8 +1,5 @@
 Flask
 gunicorn
-uvicorn
-pyannote.audio
-torch
-transformers
 resemblyzer
 numpy
+torch
