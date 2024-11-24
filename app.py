@@ -1,3 +1,10 @@
+import logging
+
+# הוספת רמות לוגים
+logging.basicConfig(level=logging.DEBUG)
+app.logger.setLevel(logging.DEBUG)
+
+
 from flask import Flask, request, jsonify
 from resemblyzer import VoiceEncoder
 import os
