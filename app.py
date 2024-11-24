@@ -2,7 +2,8 @@ from flask import Flask, request, jsonify
 from resemblyzer import VoiceEncoder
 import os
 import mimetypes
-from flask_asgi import ASGIApp
+from starlette.middleware.wsgi import WSGIMiddleware
+from starlette.applications import Starlette
 
 app = Flask(__name__)
 
@@ -52,8 +53,9 @@ def encode_audio():
         if os.path.exists(file_path):
             os.remove(file_path)
 
-# עטיפת האפליקציה עם ASGIApp
-asgi_app = ASGIApp(app)
+# עטיפת Flask עם Starlette
+asgi_app = Starlette(debug=True)
+asgi_app.add_middleware(WSGIMiddleware, app=app)
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))  # קבלת פורט מ-Render
