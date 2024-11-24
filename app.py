@@ -1,10 +1,3 @@
-import logging
-
-# הוספת רמות לוגים
-logging.basicConfig(level=logging.DEBUG)
-app.logger.setLevel(logging.DEBUG)
-
-
 from flask import Flask, request, jsonify
 from resemblyzer import VoiceEncoder
 import os
@@ -12,6 +5,7 @@ import mimetypes
 from starlette.middleware.wsgi import WSGIMiddleware
 from starlette.applications import Starlette
 
+# יצירת Flask app
 app = Flask(__name__)
 
 # הגבלת גודל קובץ ל-50MB
