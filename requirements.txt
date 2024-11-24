@@ -1,6 +1,5 @@
-fastapi
+Flask
 gunicorn
-uvicorn
 pyannote.audio
 torch
 transformers
